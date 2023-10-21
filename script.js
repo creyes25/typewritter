@@ -19,12 +19,14 @@ document.addEventListener('keydown', (e) => {
 
   } else if (e.key === 'Backspace') {
     playAudio(backspaceAudio)
-    let text = h2.innerHTML.slice(0, h2.innerHTML.length - 1)
-    h2.innerHTML = text
+    h2.removeChild(h2.lastChild)
 
   }else {
     playAudio(typingAudio)
-    h2.innerHTML += e.key
+    const newLetter = document.createElement('span')
+    newLetter.innerHTML = e.key
+    newLetter.classList.add('animated-letter')
+    h2.appendChild(newLetter)
   }
 })
 
