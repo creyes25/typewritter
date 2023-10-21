@@ -21,7 +21,9 @@ document.addEventListener('keydown', (e) => {
     playAudio(backspaceAudio)
     h2.removeChild(h2.lastChild)
 
-  }else {
+  }else if (e.key === ' ') {
+    h2.innerHTML += e.key
+  } else {
     playAudio(typingAudio)
     const newLetter = document.createElement('span')
     newLetter.innerHTML = e.key
