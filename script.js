@@ -10,7 +10,7 @@ const lineBr = document.createElement('br')
 function playAudio(audio) {
   // if audio is playing then it will create a clone, so clone will play to prevent audio overlap
   if(!typingAudio.paused || !backspaceAudio.paused) {
-    audio.cloneNode(true).play()
+    audio.cloneNode(false).play()
   } else {
     audio.play()
   }
@@ -25,7 +25,7 @@ document.addEventListener('keydown', (e) => {
 
   } else if (e.key === 'Backspace') {
     playAudio(backspaceAudio)
-    h2.removeChild(h2.lastChild) // remoces last span from h2
+    h2.removeChild(h2.lastChild) // removes last span from h2
 
   }else if (e.key === ' ') {
     playAudio(typingAudio)
